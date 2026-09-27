@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 
 const config: UserConfig = {
   plugins: [react()],
-  base: '/gym/',
+  base: '/GYM/',
   server: {
     port: 3000,
     open: true,
