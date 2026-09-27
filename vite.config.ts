@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 
 const config: UserConfig = {
   plugins: [react()],
+  base: '/rutul20/',
   server: {
     port: 3000,
     open: true,
