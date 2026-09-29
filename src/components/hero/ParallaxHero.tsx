@@ -33,28 +33,21 @@ export const ParallaxHero: FC = () => {
   return (
     <div
       ref={containerRef}
-      className="relative w-full min-h-[108vh] bg-industrial-950 overflow-hidden select-none border-b border-industrial-800 flex flex-col justify-between"
+      className="relative w-full min-h-[108vh] bg-gradient-to-b from-[#060913] via-industrial-950 to-[#070b14] overflow-hidden select-none border-b border-industrial-800 flex flex-col justify-between"
     >
-      {/* LAYER 0: Canvas Base Texture & Ambient Radial Teal Lighting */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_85%_55%_at_50%_-15%,rgba(0,128,128,0.22),transparent_75%)] pointer-events-none" />
-      <div
-        className="absolute inset-0 opacity-[0.035] pointer-events-none"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-        }}
-      />
+      {/* LAYER 0: Canvas Base Texture & Ambient Radial Teal/Cobalt Lighting */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_75%_55%_at_25%_-10%,rgba(0,128,128,0.22),transparent_70%),radial-gradient(ellipse_70%_50%_at_85%_25%,rgba(37,99,235,0.18),transparent_70%)] pointer-events-none" />
+      <div className="absolute inset-0 bg-pattern-dots opacity-40 pointer-events-none" />
 
       {/* LAYER 1: Background Kinetic Typography */}
       <motion.div
         style={{ y: bgTextY }}
         className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none z-0 will-change-transform opacity-90"
       >
-        <span className="font-display text-[16vw] leading-[0.75] tracking-tighter uppercase font-black text-transparent stroke-industrial-700 [-webkit-text-stroke:2px_#1e1e28] text-center">
+        <span className="font-display text-[16vw] leading-[0.75] tracking-tighter uppercase font-black text-transparent stroke-industrial-700 [-webkit-text-stroke:2px_#1e293b] text-center">
           FIT ORBIT
         </span>
-        <span className="font-display text-[16vw] leading-[0.75] tracking-tighter uppercase font-black text-industrial-900/90 text-center">
+        <span className="font-display text-[16vw] leading-[0.75] tracking-tighter uppercase font-black text-[#0b1329]/80 text-center">
           VADODARA
         </span>
       </motion.div>
@@ -123,14 +116,14 @@ export const ParallaxHero: FC = () => {
       >
         {/* Status Telemetry */}
         <div className="flex flex-wrap gap-2.5 sm:gap-4 items-center">
-          <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-none bg-industrial-900/90 border border-industrial-700/70 backdrop-blur-md">
-            {/* <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-volt animate-ping" /> */}
-            <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-zinc-200 font-semibold">
+          <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-none bg-midnight-900/90 border border-cyan-500/40 backdrop-blur-md shadow-[0_0_15px_rgba(6,182,212,0.15)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+            <span className="font-mono text-[10px] sm:text-xs uppercase tracking-widest text-cyan-200 font-semibold">
               {FIT_ORBIT_OFFICIAL.brandName.toUpperCase()}
             </span>
           </div>
-          <span className="font-mono text-[10px] sm:text-xs text-zinc-500 hidden sm:inline tracking-wider">
-            // {FIT_ORBIT_OFFICIAL.areaLandmark.toUpperCase()}
+          <span className="font-mono text-[10px] sm:text-xs text-zinc-400 hidden sm:inline tracking-wider">
+            // <span className="text-cyan-400 font-semibold">{FIT_ORBIT_OFFICIAL.areaLandmark.toUpperCase()}</span>
           </span>
         </div>
 
@@ -138,12 +131,11 @@ export const ParallaxHero: FC = () => {
         <div className="max-w-2xl mt-10 sm:mt-16">
           <h1 className="font-display text-4xl sm:text-7xl md:text-8xl tracking-tight text-white uppercase leading-[0.9] font-black">
             WORLD-CLASS <br />
-            <span className="text-volt drop-shadow-[0_0_35px_rgba(0,128,128,0.45)]">FITNESS TRAINING</span> IN VADODARA.
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500 drop-shadow-[0_0_35px_rgba(6,182,212,0.35)]">
+              FITNESS TRAINING
+            </span>{" "}
+            IN VADODARA.
           </h1>
-
-          {/* <p className="mt-6 text-zinc-300 font-sans text-sm sm:text-base leading-relaxed max-w-xl">
-            {FIT_ORBIT_OFFICIAL.mission}
-          </p> */}
 
           <div className="mt-10 flex flex-wrap items-center gap-6">
             <MagneticButton
@@ -152,27 +144,27 @@ export const ParallaxHero: FC = () => {
                 window.location.href = `tel:${FIT_ORBIT_OFFICIAL.phone}`;
               }}
             />
-            {/* <a
-              href="#splits"
-              className="font-mono text-xs tracking-widest uppercase text-zinc-400 hover:text-volt transition-colors duration-200 underline underline-offset-8"
-            >
-              EXPLORE WORKOUT ROUTINES →
-            </a> */}
           </div>
         </div>
 
         {/* Live Metrics strip powered by GYM_METRICS data */}
-        <div className="mt-16 pt-6 border-t border-industrial-800 grid grid-cols-2 md:grid-cols-4 gap-6 font-mono">
-          {GYM_METRICS.map((metric: MetricStat) => (
-            <div key={metric.id}>
-              <div className="text-zinc-500 text-xs tracking-widest uppercase">{metric.label}</div>
-              <div className="text-volt text-2xl font-bold font-display mt-0.5">
-                {metric.value}
-                <span className="text-white text-lg font-mono ml-0.5">{metric.suffix}</span>
+        <div className="mt-16 pt-6 border-t border-industrial-800 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 font-mono">
+          {GYM_METRICS.map((metric: MetricStat, idx: number) => {
+            const isCyanAccent: boolean = idx % 2 === 1;
+            return (
+              <div
+                key={metric.id}
+                className="p-3 sm:p-4 bg-midnight-900/40 border border-industrial-800/80 hover:border-cyan-500/40 transition-all duration-300"
+              >
+                <div className="text-zinc-500 text-xs tracking-widest uppercase">{metric.label}</div>
+                <div className={`${isCyanAccent ? "text-cyan-400" : "text-volt"} text-2xl font-bold font-display mt-0.5`}>
+                  {metric.value}
+                  <span className="text-white text-lg font-mono ml-0.5">{metric.suffix}</span>
+                </div>
+                <div className="text-zinc-400 text-[11px] truncate mt-0.5">{metric.subtext}</div>
               </div>
-              <div className="text-zinc-400 text-[11px] truncate mt-0.5">{metric.subtext}</div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </motion.div>
     </div>

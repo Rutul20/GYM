@@ -24,7 +24,7 @@ export const RotatingPlatesSection: FC = () => {
           trigger: containerRef.current,
           start: "top bottom", // starts when section enters viewport
           end: "bottom top",   // ends when section exits
-          scrub: 1.2,          // smooth 1.2s scrub lag
+          scrub: 0.6,          // responsive 0.6s scrub for high-refresh screens
           invalidateOnRefresh: true, // Recalculates start/end metrics on viewport resize
         },
       });
@@ -68,10 +68,16 @@ export const RotatingPlatesSection: FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen bg-industrial-950 flex items-center justify-center overflow-hidden border-t border-industrial-800"
+      className="relative min-h-[50vh] sm:min-h-[70vh] md:min-h-screen py-10 sm:py-16 md:py-0 bg-[radial-gradient(ellipse_at_center,_#101e42_0%,_#080e1e_55%,_#03050a_100%)] flex items-center justify-center overflow-hidden border-t border-industrial-800"
     >
-      {/* Background radial glow */}
-      <div className="absolute w-[600px] h-[600px] bg-white/5 rounded-full blur-[140px] pointer-events-none" />
+      {/* Atmospheric Concentric Orbital Rings */}
+      <div className="absolute w-[850px] h-[850px] rounded-full border border-cyan-500/10 pointer-events-none" />
+      <div className="absolute w-[600px] h-[600px] rounded-full border border-dashed border-cyan-500/15 pointer-events-none animate-[spin_120s_linear_infinite]" />
+      <div className="absolute w-[380px] h-[380px] rounded-full border border-cobalt/20 pointer-events-none" />
+
+      {/* Background atmospheric radial glow */}
+      <div className="absolute w-[650px] h-[650px] bg-cobalt/20 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute w-[450px] h-[450px] bg-cyan/15 rounded-full blur-[140px] pointer-events-none -translate-y-24" />
 
       {/* Left Plate (45 LB) */}
       <div
@@ -88,17 +94,20 @@ export const RotatingPlatesSection: FC = () => {
       </div>
 
       {/* Main Content */}
-      <div ref={centerTextRef} className="relative z-20 text-center px-4 sm:px-6 max-w-4xl 2xl:max-w-6xl mx-auto will-change-transform py-12">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-none bg-industrial-900/90 border border-industrial-700/60 mb-4 backdrop-blur-sm">
-          <span className="text-xs md:text-sm font-mono font-bold tracking-[0.3em] uppercase text-volt">
-            Kinetic Resistance
+      <div ref={centerTextRef} className="relative z-20 text-center px-4 sm:px-6 max-w-4xl 2xl:max-w-6xl mx-auto will-change-transform py-4 sm:py-8 md:py-12">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none bg-midnight-900/90 border border-cyan-500/40 mb-4 backdrop-blur-sm shadow-[0_0_20px_rgba(6,182,212,0.12)]">
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+          <span className="text-xs md:text-sm font-mono font-bold tracking-[0.3em] uppercase text-cyan-300">
+            // KINETIC RESISTANCE // PROTOCOL
           </span>
         </div>
         <h2 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-9xl 2xl:text-[9.5rem] font-display font-black uppercase tracking-tight text-white mt-2 leading-[0.88]">
           Pure Iron.<br />
-          <span className="text-volt drop-shadow-[0_0_40px_rgba(0,128,128,0.45)]">Zero Drag.</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500 drop-shadow-[0_0_40px_rgba(6,182,212,0.4)]">
+            Zero Drag.
+          </span>
         </h2>
-        <p className="mt-4 sm:mt-6 text-zinc-400 font-sans text-xs sm:text-base 2xl:text-lg max-w-lg 2xl:max-w-2xl mx-auto leading-relaxed">
+        <p className="mt-4 sm:mt-6 text-zinc-300 font-sans text-xs sm:text-base 2xl:text-lg max-w-lg 2xl:max-w-2xl mx-auto leading-relaxed">
           Ultra-low friction bearings and calibrated hub sleeves ensure linear momentum without parasitic rotational inertia.
         </p>
       </div>

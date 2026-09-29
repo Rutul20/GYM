@@ -65,28 +65,31 @@ export const BiomechanicalSpecs: FC = () => {
   });
 
   return (
-    <section id="facilities" ref={containerRef} className="relative py-28 bg-industrial-950 border-t border-industrial-800 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section id="facilities" ref={containerRef} className="relative py-28 bg-[#05060b] bg-pattern-carbon border-t border-industrial-800 overflow-hidden">
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-cobalt/10 rounded-full blur-[180px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
         {/* Section Title */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div>
-            <div className="inline-flex items-center gap-2 mb-2">
-              <span className="w-2 h-2 rounded-full bg-volt" />
-              <span className="font-mono text-xs text-volt uppercase tracking-widest font-semibold">
-                // BIOMECHANICAL HARDWARE &amp; MACHINES
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-midnight-900/90 border border-cyan-500/30 mb-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+              <span className="font-mono text-xs text-cyan-300 uppercase tracking-widest font-semibold">
+                // BIOMECHANICAL HARDWARE &amp; MACHINES // CATALOG
               </span>
             </div>
             <h2 className="font-display text-4xl sm:text-6xl text-white uppercase font-black">
               MACHINE SUITES &amp; EXERCISE MAPPING
             </h2>
           </div>
-          <p className="max-w-md font-sans text-sm text-zinc-400">
+          <p className="max-w-md font-sans text-sm text-zinc-300 leading-relaxed">
             Precision commercial machines mapped to every exercise: Smith pressing, dual cable towers, SkiErg, turf push sleds, and pro dumbbells.
           </p>
         </div>
 
         {/* Scroll-Driven Kinetic Barbell & Plate Visualization */}
-        <div className="relative w-full h-72 sm:h-80 bg-industrial-900 border border-industrial-800 rounded-none overflow-hidden flex items-center justify-center p-8 mb-12">
+        <div className="relative w-full h-72 sm:h-80 bg-gradient-to-r from-midnight-950 via-[#0a1426] to-midnight-950 border border-cyan-500/20 rounded-none overflow-hidden flex items-center justify-center p-8 mb-12 shadow-[0_0_35px_rgba(6,182,212,0.08)]">
           <div
             className="absolute inset-0 opacity-[0.05] pointer-events-none"
             style={{
@@ -122,12 +125,12 @@ export const BiomechanicalSpecs: FC = () => {
         {/* INTERACTIVE EXPAND / COLLAPSE TRIGGER DECK              */}
         {/* ======================================================== */}
         <div className="mb-12">
-          <div className="p-6 sm:p-8 bg-industrial-900 border border-industrial-800 hover:border-white transition-all duration-300">
+          <div className="p-6 sm:p-8 bg-gradient-to-br from-industrial-900 via-[#0b1424] to-industrial-900 border border-industrial-800 hover:border-white transition-all duration-300 shadow-2xl">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
               {/* Telemetry Info */}
               <div className="space-y-2">
                 <div className="flex items-center gap-3">
-                  <span className="font-mono text-xs text-volt uppercase tracking-wider font-bold">
+                  <span className="font-mono text-xs text-cyan-400 uppercase tracking-wider font-bold">
                     {isOpenAll ? "[CATALOG ACTIVE // FULL DIRECTORY OPEN]" : "[CATALOG STANDBY // DATA COLLAPSED]"}
                   </span>
                   <span className="text-zinc-600 font-mono text-xs">|</span>
@@ -151,7 +154,7 @@ export const BiomechanicalSpecs: FC = () => {
               <button
                 type="button"
                 onClick={toggleOpenAll}
-                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-industrial-950 border-2 border-volt text-volt hover:bg-white hover:text-industrial-950 hover:border-white font-display font-black text-lg tracking-wider uppercase transition-all duration-300 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(255,255,255,0.35)] shrink-0"
+                className="group relative inline-flex items-center justify-center gap-3 px-8 py-4 bg-teal-400 text-industrial-950 border-0 border-none outline-none hover:bg-white hover:text-industrial-950 font-display font-black text-lg tracking-wider uppercase transition-all duration-300 shadow-[0_0_20px_rgba(45,212,191,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.45)] shrink-0"
               >
                 <span className="text-xl font-mono leading-none">
                   {isOpenAll ? "▲" : "▼"}
@@ -170,7 +173,7 @@ export const BiomechanicalSpecs: FC = () => {
               </div>
               <div>
                 <span className="text-zinc-500 block text-[10px] uppercase">EXERCISE MAPPINGS</span>
-                <span className="text-volt font-bold text-sm">ALL PROTOCOLS</span>
+                <span className="text-cyan-400 font-bold text-sm">ALL PROTOCOLS</span>
               </div>
               <div>
                 <span className="text-zinc-500 block text-[10px] uppercase">MECHANICAL SYSTEM</span>
@@ -208,10 +211,10 @@ export const BiomechanicalSpecs: FC = () => {
                         key={cat.id}
                         type="button"
                         onClick={(): void => setActiveCategory(cat.id)}
-                        className={`font-mono text-xs uppercase px-3 py-1.5 transition-colors border ${
+                        className={`font-mono text-xs uppercase px-3 py-1.5 transition-all border ${
                           isSelected
-                            ? "bg-volt text-industrial-950 font-bold border-volt hover:bg-white hover:text-industrial-950 hover:border-white"
-                            : "bg-industrial-950 text-zinc-400 border-industrial-800 hover:border-white hover:text-white hover:bg-industrial-850"
+                            ? "bg-teal-400 text-industrial-950 font-bold border-teal-400 hover:bg-white hover:text-industrial-950 hover:border-white shadow-[0_0_15px_rgba(45,212,191,0.3)]"
+                            : "bg-midnight-950 text-zinc-400 border-industrial-800 hover:border-white hover:text-white hover:bg-midnight-900"
                         }`}
                       >
                         {cat.label}
@@ -227,7 +230,7 @@ export const BiomechanicalSpecs: FC = () => {
                     value={searchFilter}
                     onChange={handleSearchChange}
                     placeholder="Search exercise or machine..."
-                    className="w-full bg-industrial-950 border border-industrial-800 px-3 py-2 text-xs font-mono text-white placeholder-zinc-500 focus:outline-none focus:border-volt"
+                    className="w-full bg-midnight-950 border border-industrial-800 px-3 py-2 text-xs font-mono text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-400"
                   />
                   {searchFilter.trim() !== "" && (
                     <button
@@ -253,7 +256,7 @@ export const BiomechanicalSpecs: FC = () => {
                       setSearchFilter("");
                       setActiveCategory("ALL");
                     }}
-                    className="mt-3 font-mono text-xs text-volt underline uppercase tracking-wider"
+                    className="mt-3 font-mono text-xs text-cyan-400 underline uppercase tracking-wider"
                   >
                     Reset Search &amp; Filters
                   </button>

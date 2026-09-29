@@ -46,10 +46,10 @@ export const MagneticButton: FC<MagneticButtonProps> = ({
       animate={{ x: offset.x, y: offset.y }}
       transition={{ type: "spring", stiffness: 220, damping: 14, mass: 0.1 }}
       whileTap={{ scale: 0.94 }}
-      className={`group relative inline-flex items-center justify-center px-8 py-4 font-display text-lg tracking-wider uppercase font-black overflow-hidden transition-all duration-300 cursor-pointer ${
+      className={`group relative inline-flex items-center justify-center px-8 py-4 font-display text-lg tracking-wider uppercase font-black overflow-hidden transition-all duration-300 cursor-pointer border-0 border-none outline-none ${
         isPrimary
-          ? "bg-volt text-obsidian border-2 border-transparent hover:border-white hover:bg-white hover:text-industrial-950 shadow-[0_0_20px_rgba(0,0,0,0.5)] hover:shadow-[0_0_30px_rgba(255,255,255,0.35)]"
-          : "bg-industrial-900 text-white border-2 border-industrial-700 hover:border-white hover:bg-white hover:text-industrial-950 hover:shadow-[0_0_30px_rgba(255,255,255,0.35)]"
+          ? "bg-teal-400 text-industrial-950 hover:bg-white hover:text-industrial-950 shadow-[0_0_20px_rgba(45,212,191,0.35)] hover:shadow-[0_0_30px_rgba(255,255,255,0.45)]"
+          : "bg-industrial-900 text-white hover:bg-white hover:text-industrial-950 hover:shadow-[0_0_30px_rgba(255,255,255,0.35)]"
       } ${className}`}
     >
       {/* Corner notch */}

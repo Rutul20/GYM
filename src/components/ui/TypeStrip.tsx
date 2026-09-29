@@ -37,11 +37,11 @@ export const TypeStrip: FC<TypeStripProps> = ({
   const getVariantStyles = (): string => {
     switch (variant) {
       case "teal":
-        return "bg-volt text-industrial-950 font-black border-y border-teal-600/30 shadow-[0_0_20px_rgba(0,128,128,0.25)]";
+        return "bg-gradient-to-r from-teal-500 via-cyan-400 to-blue-500 text-industrial-950 font-black border-y border-cyan-400/40 shadow-[0_0_25px_rgba(56,189,248,0.35)]";
       case "dark":
-        return "bg-industrial-900 text-white border-y border-industrial-800";
+        return "bg-gradient-to-r from-[#070b14] via-[#091326] to-[#070b14] text-white border-y border-industrial-800";
       case "outline":
-        return "bg-industrial-950 text-transparent stroke-industrial-700 [-webkit-text-stroke:1px_#008080] border-y border-industrial-800/80";
+        return "bg-gradient-to-r from-[#060a14] via-[#091226] to-[#060a14] text-transparent [-webkit-text-stroke:1px_#38bdf8] border-y border-cyan-500/20";
     }
   };
 
@@ -49,7 +49,7 @@ export const TypeStrip: FC<TypeStripProps> = ({
 
   return (
     <div
-      className={`relative w-full overflow-hidden select-none py-3 sm:py-4 z-20 ${slanted ? "rotate-[-1.5deg] scale-105 my-8 sm:my-12 shadow-2xl" : ""
+      className={`relative w-full overflow-hidden select-none py-2.5 sm:py-3.5 md:py-4 z-20 ${slanted ? "rotate-[-1.5deg] scale-105 my-3 sm:my-8 md:my-12 shadow-2xl" : ""
         } ${getVariantStyles()} ${className}`}
     >
       <div

@@ -3,10 +3,11 @@ import { FIT_ORBIT_OFFICIAL } from "../../data/gymWebsite.data";
 
 export const MobileActionBar: FC = () => {
   return (
-    <div className="fixed bottom-0 left-0 w-full z-40 lg:hidden bg-industrial-950/95 backdrop-blur-lg border-t border-industrial-800 px-4 py-2.5 flex items-center justify-between gap-3 shadow-[0_-10px_25px_rgba(0,0,0,0.8)] pb-safe">
+    <div className="fixed bottom-0 left-0 w-full z-40 lg:hidden bg-[#070b14]/95 backdrop-blur-lg border-t border-cyan-500/20 px-4 py-2.5 flex items-center justify-between gap-3 shadow-[0_-10px_25px_rgba(0,0,0,0.8)] pb-safe">
       <div className="flex flex-col">
         <div className="flex items-center gap-1.5">
-          <span className="font-mono text-[10px] text-volt uppercase font-bold tracking-wider">
+          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+          <span className="font-mono text-[10px] text-cyan-400 uppercase font-bold tracking-wider">
             OPEN TODAY
           </span>
         </div>
@@ -18,9 +19,9 @@ export const MobileActionBar: FC = () => {
       <div className="flex items-center gap-2">
         <a
           href={`tel:${FIT_ORBIT_OFFICIAL.phone}`}
-          className="flex items-center gap-1.5 px-3 py-2 bg-industrial-900 border border-industrial-700 hover:border-white hover:text-white text-white font-mono text-xs font-bold uppercase rounded-none active:scale-95 transition-all"
+          className="flex items-center gap-1.5 px-3 py-2 bg-[#091326] border border-cyan-500/30 hover:border-white hover:text-white text-white font-mono text-xs font-bold uppercase rounded-none active:scale-95 transition-all"
         >
-          <svg className="w-3.5 h-3.5 text-volt" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-3.5 h-3.5 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -33,7 +34,7 @@ export const MobileActionBar: FC = () => {
 
         <a
           href={`tel:${FIT_ORBIT_OFFICIAL.phone}`}
-          className="px-4 py-2 bg-volt text-industrial-950 border border-transparent hover:bg-white hover:border-white hover:text-industrial-950 font-display text-sm font-black uppercase tracking-wider rounded-none active:scale-95 transition-all"
+          className="px-4 py-2 bg-teal-400 text-industrial-950 border border-transparent hover:bg-white hover:border-white hover:text-industrial-950 font-display text-sm font-black uppercase tracking-wider rounded-none active:scale-95 transition-all shadow-[0_0_15px_rgba(45,212,191,0.3)]"
         >
           JOIN PROTOCOL
         </a>

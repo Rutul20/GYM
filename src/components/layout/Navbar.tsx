@@ -1,5 +1,6 @@
 /** biome-ignore-all lint/suspicious/noCommentText: <explanation> */
 import { useState, type FC } from "react";
+import logo from "../../assets/logo.png";
 import { FIT_ORBIT_OFFICIAL } from "../../data/gymWebsite.data";
 import { MagneticButton } from "../ui/MagneticButton";
 
@@ -15,13 +16,13 @@ export const Navbar: FC = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-industrial-950/90 backdrop-blur-md border-b border-industrial-800">
+    <header className="fixed top-0 left-0 w-full z-50 bg-[#070b14]/90 backdrop-blur-md border-b border-industrial-800/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-18 sm:h-20 flex items-center justify-between">
         {/* Brand */}
         <a href="#" className="flex items-center gap-3 group" onClick={closeMenu}>
-          <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full p-0.5 bg-white flex items-center justify-center shadow-[0_0_20px_rgba(0,128,128,0.4)] group-hover:scale-105 transition-transform duration-300 overflow-hidden border border-volt/50">
+          <div className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full p-0.5 bg-white flex items-center justify-center shadow-[0_0_20px_rgba(6,182,212,0.35)] group-hover:scale-105 transition-transform duration-300 overflow-hidden border border-cyan-400/50">
             <img
-              src="/logo.png"
+              src={logo}
               alt="FITORBIT GYM"
               className="w-full h-full object-contain"
             />
@@ -30,22 +31,22 @@ export const Navbar: FC = () => {
 
         {/* Desktop Links */}
         <nav className="hidden lg:flex items-center gap-7 font-mono text-xs uppercase tracking-widest text-zinc-400">
-          <a href="#mission-vision" className="hover:text-volt transition-colors">
+          <a href="#mission-vision" className="hover:text-cyan-400 transition-colors">
             MISSION &amp; VISION
           </a>
-          <a href="#programs" className="hover:text-volt transition-colors">
+          <a href="#programs" className="hover:text-cyan-400 transition-colors">
             PROGRAMS
           </a>
-          <a href="#facilities" className="hover:text-volt transition-colors">
+          <a href="#facilities" className="hover:text-cyan-400 transition-colors">
             FACILITIES
           </a>
-          <a href="#tour-video" className="hover:text-volt transition-colors">
+          <a href="#tour-video" className="hover:text-cyan-400 transition-colors">
             VIDEO TOUR
           </a>
-          <a href="#trainers" className="hover:text-volt transition-colors">
+          <a href="#trainers" className="hover:text-cyan-400 transition-colors">
             COACHES
           </a>
-          <a href="#reviews" className="hover:text-volt transition-colors">
+          <a href="#reviews" className="hover:text-cyan-400 transition-colors">
             REVIEWS
           </a>
         </nav>
@@ -85,23 +86,23 @@ export const Navbar: FC = () => {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-industrial-950 border-b border-industrial-800 px-6 py-6 font-mono text-sm uppercase tracking-widest text-zinc-300 flex flex-col gap-4 animate-in slide-in-from-top-2 duration-200">
-          <a href="#mission-vision" onClick={closeMenu} className="py-2 border-b border-industrial-850 hover:text-volt">
+        <div className="lg:hidden bg-[#070b14] border-b border-cyan-500/20 px-6 py-6 font-mono text-sm uppercase tracking-widest text-zinc-300 flex flex-col gap-4 animate-in slide-in-from-top-2 duration-200">
+          <a href="#mission-vision" onClick={closeMenu} className="py-2 border-b border-industrial-850 hover:text-cyan-400">
             // MISSION &amp; VISION
           </a>
-          <a href="#programs" onClick={closeMenu} className="py-2 border-b border-industrial-850 hover:text-volt">
+          <a href="#programs" onClick={closeMenu} className="py-2 border-b border-industrial-850 hover:text-cyan-400">
             // CORE PROGRAMS
           </a>
-          <a href="#facilities" onClick={closeMenu} className="py-2 border-b border-industrial-850 hover:text-volt">
+          <a href="#facilities" onClick={closeMenu} className="py-2 border-b border-industrial-850 hover:text-cyan-400">
             // ARENAS &amp; HARDWARE
           </a>
-          <a href="#tour-video" onClick={closeMenu} className="py-2 border-b border-industrial-850 hover:text-volt">
+          <a href="#tour-video" onClick={closeMenu} className="py-2 border-b border-industrial-850 hover:text-cyan-400">
             // VIDEO TOUR (WATCH FLOOR)
           </a>
-          <a href="#trainers" onClick={closeMenu} className="py-2 border-b border-industrial-850 hover:text-volt">
+          <a href="#trainers" onClick={closeMenu} className="py-2 border-b border-industrial-850 hover:text-cyan-400">
             // CERTIFIED COACHES
           </a>
-          <a href="#reviews" onClick={closeMenu} className="py-2 border-b border-industrial-850 hover:text-volt">
+          <a href="#reviews" onClick={closeMenu} className="py-2 border-b border-industrial-850 hover:text-cyan-400">
             // MEMBER REVIEWS
           </a>
           <div className="pt-2 flex flex-col gap-3">
@@ -114,7 +115,7 @@ export const Navbar: FC = () => {
             <a
               href={`tel:${FIT_ORBIT_OFFICIAL.phone}`}
               onClick={closeMenu}
-              className="py-3 text-center bg-volt text-industrial-950 border border-transparent hover:bg-white hover:border-white hover:text-industrial-950 font-display font-black text-lg tracking-wider transition-colors"
+              className="py-3 text-center bg-teal-400 text-industrial-950 border border-transparent hover:bg-white hover:border-white hover:text-industrial-950 font-display font-black text-lg tracking-wider transition-colors shadow-[0_0_20px_rgba(45,212,191,0.35)]"
             >
               CLAIM FREE TRIAL
             </a>

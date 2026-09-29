@@ -31,6 +31,26 @@ const config: Config = {
           dim: "rgb(0 128 128 / 0.18)",
           dark: "#08080a",
         },
+        cobalt: {
+          DEFAULT: "#2563eb",
+          hover: "#1d4ed8",
+          light: "#3b82f6",
+          dim: "rgba(37, 99, 235, 0.16)",
+          glow: "rgba(37, 99, 235, 0.45)",
+        },
+        cyan: {
+          DEFAULT: "#06b6d4",
+          light: "#38bdf8",
+          dim: "rgba(6, 182, 212, 0.16)",
+          glow: "rgba(56, 189, 248, 0.45)",
+        },
+        midnight: {
+          950: "#05070d",
+          900: "#070b14",
+          850: "#090f1c",
+          800: "#0c1527",
+          700: "#13213d",
+        },
       },
       borderColor: {
         volt: "#08080a",

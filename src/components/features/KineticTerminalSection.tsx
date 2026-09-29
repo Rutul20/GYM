@@ -268,7 +268,7 @@ const SpinningSeal: FC<SpinningSealProps> = ({ text, centerLabel }: SpinningSeal
           d="M 60, 60 m -46, 0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0"
           fill="none"
         />
-        <text className="font-mono text-[8.5px] uppercase font-bold tracking-[0.22em] fill-zinc-300">
+        <text className="font-mono text-[8.5px] uppercase font-bold tracking-[0.22em] fill-cyan-200/80">
           <textPath href={`#circle-path-${cleanId}`} startOffset="0%">
             {text} • {text} •
           </textPath>
@@ -276,8 +276,8 @@ const SpinningSeal: FC<SpinningSealProps> = ({ text, centerLabel }: SpinningSeal
       </svg>
 
       {/* Center Badge Core */}
-      <div className="absolute inset-4 rounded-full bg-industrial-950 flex flex-col items-center justify-center p-2 text-center shadow-inner">
-        <span className="font-display font-black text-[10px] sm:text-xs text-white uppercase tracking-tight leading-tight">
+      <div className="absolute inset-4 rounded-full bg-gradient-to-br from-[#0c1a36] to-[#060a14] border border-cyan-500/40 flex flex-col items-center justify-center p-2 text-center shadow-inner">
+        <span className="font-display font-black text-[10px] sm:text-xs text-cyan-300 uppercase tracking-tight leading-tight">
           {centerLabel}
         </span>
       </div>
@@ -311,7 +311,7 @@ export const KineticTerminalSection: FC = () => {
           trigger: containerRef.current,
           start: "top bottom",
           end: "bottom top",
-          scrub: 1.2,
+          scrub: 0.6,
           invalidateOnRefresh: true,
         },
       });
@@ -366,10 +366,16 @@ export const KineticTerminalSection: FC = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen bg-industrial-950 flex items-center justify-center overflow-hidden border-t border-industrial-800"
+      className="relative min-h-[50vh] sm:min-h-[70vh] md:min-h-screen py-10 sm:py-16 md:py-0 bg-[radial-gradient(ellipse_at_center,_#122759_0%,_#080e22_50%,_#03050a_100%)] flex items-center justify-center overflow-hidden border-t border-industrial-800"
     >
-      {/* Background subtle radial glow */}
-      <div className="absolute w-[700px] h-[700px] bg-white/5 rounded-full blur-[160px] pointer-events-none" />
+      {/* Grand Concentric Arena Radar Rings */}
+      <div className="absolute w-[950px] h-[950px] rounded-full border border-cyan-500/10 pointer-events-none" />
+      <div className="absolute w-[700px] h-[700px] rounded-full border border-dashed border-cobalt/25 pointer-events-none animate-[spin_90s_linear_infinite]" />
+      <div className="absolute w-[450px] h-[450px] rounded-full border border-cyan-400/15 pointer-events-none" />
+
+      {/* Background dual atmospheric glow: cobalt + cyan */}
+      <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-cobalt/20 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-cyan/20 rounded-full blur-[160px] pointer-events-none" />
 
       {/* Floating Spinning Seal Badge: Mid-Left Floating Sticker */}
       <div
@@ -394,11 +400,12 @@ export const KineticTerminalSection: FC = () => {
       {/* ======================================================== */}
       <div
         ref={centerContentRef}
-        className="relative z-20 text-center px-4 sm:px-6 max-w-4xl 2xl:max-w-6xl mx-auto will-change-transform py-16 sm:py-20"
+        className="relative z-20 text-center px-4 sm:px-6 max-w-4xl 2xl:max-w-6xl mx-auto will-change-transform py-4 sm:py-10 md:py-20"
       >
         {/* Telemetry Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none bg-industrial-900/90 border border-industrial-700/60 mb-6 backdrop-blur-sm">
-          <span className="text-xs md:text-sm font-mono font-bold tracking-[0.3em] uppercase text-volt">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none bg-cobalt/15 border border-cyan-500/40 mb-6 backdrop-blur-sm">
+          <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+          <span className="text-xs md:text-sm font-mono font-bold tracking-[0.3em] uppercase text-cyan-300">
             // TOTAL SPECTRUM // RECOVERY &amp; POWER
           </span>
         </div>
@@ -406,7 +413,7 @@ export const KineticTerminalSection: FC = () => {
         {/* Display Typography */}
         <h2 className="text-4xl xs:text-5xl sm:text-7xl md:text-8xl lg:text-9xl 2xl:text-[9.5rem] font-display font-black uppercase tracking-tight text-white leading-[0.88]">
           MOVE BETTER.<br />
-          <span className="text-volt drop-shadow-[0_0_40px_rgba(0,128,128,0.45)]">
+          <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent drop-shadow-[0_0_40px_rgba(56,189,248,0.45)]">
             LIVE STRONGER.
           </span>
         </h2>

@@ -54,16 +54,18 @@ export const ScrollPhilosophy: FC = () => {
     <section
       id="mission-vision"
       ref={containerRef}
-      className="w-full py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-industrial-950 relative border-b border-industrial-800 overflow-hidden"
+      className="w-full py-20 sm:py-28 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-[#031113] via-[#070d1c] to-[#08132e] relative border-b border-industrial-800 overflow-hidden"
     >
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/5 rounded-full blur-[160px] pointer-events-none" />
+      {/* Background ambient split lighting: Emerald on left, Cobalt on right */}
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-teal-500/15 rounded-full blur-[170px] pointer-events-none" />
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[600px] h-[600px] bg-cobalt/20 rounded-full blur-[170px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto flex flex-col items-center relative z-10">
         {/* Section Telemetry Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none border border-industrial-700 bg-industrial-900 text-xs font-mono font-bold uppercase tracking-widest mb-8 text-zinc-300">
-          <span className="text-volt">CORE PHILOSOPHY</span>
-          <span className="text-zinc-600">// MISSION &amp; VISION</span>
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-none border border-cyan-500/40 bg-midnight-900/90 text-xs font-mono font-bold uppercase tracking-widest mb-8 text-zinc-300 shadow-[0_0_20px_rgba(6,182,212,0.1)]">
+          <span className="text-teal-400">CORE PHILOSOPHY</span>
+          <span className="text-zinc-600">//</span>
+          <span className="text-cyan-400">MISSION &amp; VISION</span>
         </div>
 
         {/* Word-by-word scroll reveal typography */}
@@ -87,15 +89,23 @@ export const ScrollPhilosophy: FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5 }}
-            className="bg-industrial-900 p-8 sm:p-10 border border-industrial-800 flex flex-col justify-between space-y-8 relative overflow-hidden group hover:border-white transition-all duration-300 shadow-xl"
+            className="bg-gradient-to-br from-[#061817]/95 via-[#071317]/95 to-[#040a0e] p-8 sm:p-10 border border-teal-500/30 flex flex-col justify-between space-y-8 relative overflow-hidden group hover:border-white transition-all duration-300 shadow-xl"
           >
             {/* Top Accent Bar */}
             <div
               className="absolute top-0 left-0 right-0 h-1"
-              style={{ background: "linear-gradient(90deg, rgb(0 128 128), #00b3b3)" }}
+              style={{ background: "linear-gradient(90deg, rgb(0, 128, 128), #06b6d4, #38bdf8)" }}
             />
 
-            <div className="space-y-4">
+            {/* Ghosted Big Numeral Watermark */}
+            <div className="absolute -bottom-8 -right-4 font-display font-black text-9xl text-teal-400/5 select-none pointer-events-none">
+              01
+            </div>
+
+            <div className="space-y-4 relative z-10">
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-teal-500/10 border border-teal-500/30 text-teal-300 font-mono text-[10px] tracking-widest uppercase font-bold">
+                // TARGET OPERATIONAL GOAL
+              </div>
               <h3 className="font-display text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">
                 Our Mission
               </h3>
@@ -106,15 +116,15 @@ export const ScrollPhilosophy: FC = () => {
             </div>
 
             {/* Mission Pillars */}
-            <div className="pt-6 border-t border-industrial-800">
-              <div className="text-[10px] font-mono font-bold uppercase tracking-widest text-zinc-500 mb-3">
+            <div className="pt-6 border-t border-teal-500/20 relative z-10">
+              <div className="text-[10px] font-mono font-bold uppercase tracking-widest text-teal-400/80 mb-3">
                 MISSION PILLARS
               </div>
               <div className="flex flex-wrap gap-2.5">
                 {MISSION_PILLARS.map((item: PillarItem, idx: number) => (
                   <span
                     key={idx}
-                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none text-xs font-mono font-semibold bg-industrial-950 border border-industrial-800 text-zinc-200 group-hover:border-zinc-700 transition-colors"
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none text-xs font-mono font-semibold bg-[#030d0d]/90 border border-teal-500/30 text-zinc-200 group-hover:border-white transition-colors"
                   >
                     <span>{item.icon}</span>
                     <span>{item.label}</span>
@@ -130,15 +140,23 @@ export const ScrollPhilosophy: FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-40px" }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-industrial-900 p-8 sm:p-10 border border-industrial-800 flex flex-col justify-between space-y-8 relative overflow-hidden group hover:border-white transition-all duration-300 shadow-xl"
+            className="bg-gradient-to-br from-[#0c1938]/95 via-[#081226]/95 to-[#040a16] p-8 sm:p-10 border border-cyan-500/30 flex flex-col justify-between space-y-8 relative overflow-hidden group hover:border-white transition-all duration-300 shadow-xl"
           >
             {/* Top Accent Bar */}
             <div
               className="absolute top-0 left-0 right-0 h-1"
-              style={{ background: "linear-gradient(90deg, rgb(0 128 128), #14b8a6)" }}
+              style={{ background: "linear-gradient(90deg, #2563eb, #38bdf8, rgb(0, 128, 128))" }}
             />
 
-            <div className="space-y-4">
+            {/* Ghosted Big Numeral Watermark */}
+            <div className="absolute -bottom-8 -right-4 font-display font-black text-9xl text-cyan-400/5 select-none pointer-events-none">
+              02
+            </div>
+
+            <div className="space-y-4 relative z-10">
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 bg-cobalt/15 border border-cyan-500/30 text-cyan-300 font-mono text-[10px] tracking-widest uppercase font-bold">
+                // FUTURE HORIZON DIRECTIVE
+              </div>
               <h3 className="font-display text-3xl sm:text-4xl font-black text-white uppercase tracking-tight">
                 Our Vision
               </h3>
@@ -149,15 +167,15 @@ export const ScrollPhilosophy: FC = () => {
             </div>
 
             {/* Vision Pillars */}
-            <div className="pt-6 border-t border-industrial-800">
-              <div className="text-[10px] font-mono font-bold uppercase tracking-widest text-zinc-500 mb-3">
+            <div className="pt-6 border-t border-cyan-500/20 relative z-10">
+              <div className="text-[10px] font-mono font-bold uppercase tracking-widest text-cyan-400/80 mb-3">
                 VISION PILLARS
               </div>
               <div className="flex flex-wrap gap-2.5">
                 {VISION_PILLARS.map((item: PillarItem, idx: number) => (
                   <span
                     key={idx}
-                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none text-xs font-mono font-semibold bg-industrial-950 border border-industrial-800 text-zinc-200 group-hover:border-zinc-700 transition-colors"
+                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-none text-xs font-mono font-semibold bg-[#050c1c]/90 border border-cyan-500/30 text-zinc-200 group-hover:border-white transition-colors"
                   >
                     <span>{item.icon}</span>
                     <span>{item.label}</span>

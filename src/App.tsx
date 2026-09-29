@@ -11,6 +11,7 @@ import { KineticTerminalSection } from "./components/features/KineticTerminalSec
 import { ScrollPhilosophy } from "./components/features/ScrollPhilosophy";
 import { TypeStrip } from "./components/ui/TypeStrip";
 import { MobileActionBar } from "./components/layout/MobileActionBar";
+import { ScrollToTop } from "./components/ui/ScrollToTop";
 import { Footer } from "./components/layout/Footer";
 import { CORE_PROGRAMS } from "./data/gymWebsite.data";
 
@@ -26,7 +27,7 @@ const HARDWARE_STRIP_ITEMS: readonly string[] = [
 
 export const App: FC = () => {
   return (
-    <div className="min-h-screen bg-industrial-950 text-white selection:bg-volt selection:text-industrial-950 font-sans pb-16 lg:pb-0 overflow-x-hidden w-full max-w-[100vw]">
+    <div className="min-h-screen bg-[#060912] text-white selection:bg-cyan-400 selection:text-industrial-950 font-sans pb-16 lg:pb-0 overflow-x-hidden w-full max-w-[100vw]">
       <Navbar />
       <main>
         <ParallaxHero />
@@ -61,6 +62,8 @@ export const App: FC = () => {
       </main>
 
       <Footer />
+      {/* Scroll To Top Action */}
+      <ScrollToTop />
       {/* Mobile Sticky Quick Action Telemetry Strip */}
       <MobileActionBar />
     </div>
